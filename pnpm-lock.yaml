@@ -17,6 +17,9 @@ dependencies:
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
+  lodash-es:
+    specifier: ^4.17.21
+    version: 4.17.21
   pnpm:
     specifier: ^8.7.0
     version: 8.7.0
@@ -988,7 +991,6 @@ packages:
 
   /lodash-es@4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: true
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
