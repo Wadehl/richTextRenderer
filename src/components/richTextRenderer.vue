@@ -49,6 +49,8 @@ const getNodeStyles = (node: any) => {
   }
   return styles;
 };
+
+console.log(nodes.value);
 </script>
 
 <template>
@@ -59,7 +61,7 @@ const getNodeStyles = (node: any) => {
     <a-image
       v-if="node.nodeName === 'IMG'"
       :src="node.src"
-      :style="{ maxWidth: imgMaxWidth }"
+      :style="Object.assign(getNodeStyles(node), { maxWidth: imgMaxWidth })"
     />
     <a
       v-else-if="node.nodeName === 'A'"
@@ -75,21 +77,15 @@ const getNodeStyles = (node: any) => {
       </tbody>
     </table>
     <br v-else-if="node.nodeName === 'BR'" />
-    <span
-      v-else-if="node.nodeName === 'SPAN'"
-      v-html="node.innerHTML"
-      :style="getNodeStyles(node)"
-    />
-    <strong
-      v-else-if="node.nodeName === 'STRONG'"
-      v-html="node.innerHTML"
-      :style="getNodeStyles(node)"
-    />
-    <em
-      v-else-if="node.nodeName === 'EM'"
-      v-html="node.innerHTML"
-      :style="getNodeStyles(node)"
-    />
+    <span v-else-if="node.nodeName === 'SPAN'" :style="getNodeStyles(node)">
+      <rich-text-renderer :rich-text="node.innerHTML" />
+    </span>
+    <strong v-else-if="node.nodeName === 'STRONG'" :style="getNodeStyles(node)">
+      <rich-text-renderer :rich-text="node.innerHTML" />
+    </strong>
+    <em v-else-if="node.nodeName === 'EM'" :style="getNodeStyles(node)">
+      <rich-text-renderer :rich-text="node.innerHTML" />
+    </em>
 
     <video
       v-else-if="node.nodeName === 'VIDEO'"
